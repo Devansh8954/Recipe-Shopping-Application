@@ -15,7 +15,7 @@ export class RecipeEffects {
       ofType(RecipesActions.fetchRecipes),
       switchMap(() => {
         return this.http.get<Recipe[]>(
-          'https://angular-test-fd57f-default-rtdb.firebaseio.com/recipes.json'
+          'https://fleet-flame-409414-default-rtdb.firebaseio.com/recipes.json'
         );
       }),
       map((recipes) => {
@@ -39,7 +39,7 @@ export class RecipeEffects {
         withLatestFrom(this.store.select('recipes')),
         switchMap(([actionData, recipesState]) => {
           return this.http.put(
-            'https://angular-test-fd57f-default-rtdb.firebaseio.com/recipes.json',
+            'https://fleet-flame-409414-default-rtdb.firebaseio.com/recipes.json',
             recipesState.recipes
           );
         })
